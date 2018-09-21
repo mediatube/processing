@@ -1,0 +1,18 @@
+version: '2'
+services:  
+  processing:
+    build: .
+    image: slavikmipt/audiotube-worker:processing
+    volumes:
+     - /etc/nfs:/etc/nfs
+    restart: always
+    command: processing
+#    scale: 5
+
+#    depends_on:
+#     - ffmpeg
+#  ffmpeg:
+#    image: jrottenberg/ffmpeg:alpine
+#    volumes:
+#     - .:/worker
+
