@@ -1,10 +1,7 @@
 FROM jrottenberg/ffmpeg:centos
-RUN yum update -y && yum clean all
-RUN yum reinstall -y glibc-common
-########## OS ##########
-RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm
-RUN yum update -y
-RUN yum install -y python36u python36u-libs python36u-devel python36u-pip && yum clean all
+RUN yum update -y && yum reinstall -y glibc-common && \
+    yum install -y https://centos7.iuscommunity.org/ius-release.rpm && yum update -y && \
+    yum install -y python36u python36u-libs python36u-devel python36u-pip && yum clean all
 
 ########## ENV ##########
 # Set the locale(en_US.UTF-8)
